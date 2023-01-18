@@ -17,7 +17,7 @@ class Handler implements URLHandler {
             if (url.getPath().contains("/add")) {
                 String[] parameters = url.getQuery().split("=");
                 if (parameters[0].equals("s")) {
-                    words.add(String.parameters[1]);
+                    words.add(parameters[1]);
                     return String.format("Added %s", parameters[1]);
                 }
             }

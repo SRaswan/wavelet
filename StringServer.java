@@ -3,10 +3,8 @@ import java.net.URI;
 import java.util.ArrayList;
 
 class Handler implements URLHandler {
-    // Run server by
-    // 
-    ArrayList<String> words = new ArrayList<String>();
-    ArrayList<String> found;
+    StringBuilder words = new StringBuilder();
+
 
     public String handleRequest(URI url) {
         if (url.getPath().equals("/")) {
@@ -16,8 +14,8 @@ class Handler implements URLHandler {
             if (url.getPath().contains("/add-message")) {
                 String[] parameters = url.getQuery().split("=");
                 if (parameters[0].equals("s")) {
-                    words.add(parameters[1]);
-                    return String.format("%s", parameters[1]);
+                    words.append(parameters[1]+"\n");
+                    return String.format("%s\n", parameters[1]);
                 }
             }
 
